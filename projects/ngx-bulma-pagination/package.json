@@ -1,0 +1,12 @@
+{
+  "name": "ngx-bulma-pagination",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^10.1.3",
+    "@angular/core": "^10.1.3",
+    "bulma": "^0.9.0"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

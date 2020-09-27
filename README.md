@@ -1,27 +1,102 @@
 # NgxBulmaPagination
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
+Angular + [Bulma - pagination](https://bulma.io/documentation/components/pagination/)
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+    This project is currently under development. (But it will work fine.)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Quick Start
 
-## Build
+1. Install packages
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+    (After the development is completed, it will be distributed to NPM)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+2. Import a module
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```typescript
+// app.module.ts
 
-## Further help
+...
+import { NgxBulmaPaginationModule } from "ngx-bulma-pagination";
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+  ...,
+  imports: [
+    ...,
+    NgxBulmaPaginationModule
+  ],
+  ...
+})
+export class AppModule { }
+```
+
+3. Using a component
+
+```html
+<ngx-bulma-pagination ...></ngx-bulma-pagination>
+```
+
+
+## Example
+
+### Basic
+
+* max : Total count. default is ``100``.
+* count : Number of buttons per group. default is ``10``.
+
+```html
+<ngx-bulma-pagination [max]="30" [count]="10" (pageChange)="pageChange($event)"></ngx-bulma-pagination>
+```
+
+<img src="screenshot/1basic.jpg" width="100%"></img>
+
+
+### Style
+
+* isRounded : ``false``(square, default), ``true``(rounded)
+
+```html
+<ngx-bulma-pagination [max]="30" [count]="10" (pageChange)="pageChange($event)" [isRounded]="true"></ngx-bulma-pagination>
+```
+
+<img src="screenshot/2rounded.jpg" width="100%"></img>
+
+### Size
+
+* size : ``is-small`` (default), ``is-medium``, ``is-large``
+
+```html
+<ngx-bulma-pagination [max]="30" [count]="10" (pageChange)="pageChange($event)" [size]="'is-small'"></ngx-bulma-pagination>
+<ngx-bulma-pagination [max]="30" [count]="10" (pageChange)="pageChange($event)" [size]="'is-medium'"></ngx-bulma-pagination>
+<ngx-bulma-pagination [max]="30" [count]="10" (pageChange)="pageChange($event)" [size]="'is-large'"></ngx-bulma-pagination>
+```
+
+<img src="screenshot/3size.jpg" width="100%"></img>
+
+
+### Order
+
+* size : ``is-centered`` (default), ``is-left``, ``is-right``
+
+```html
+<ngx-bulma-pagination [max]="30" [count]="10" (pageChange)="pageChange($event)" [order]="'is-centered'"></ngx-bulma-pagination>
+<ngx-bulma-pagination [max]="30" [count]="10" (pageChange)="pageChange($event)" [order]="'is-left'"></ngx-bulma-pagination>
+<ngx-bulma-pagination [max]="30" [count]="10" (pageChange)="pageChange($event)" [order]="'is-right'"></ngx-bulma-pagination>
+```
+
+<img src="screenshot/4order.jpg" width="100%"></img>
+
+
+### Previous, Next
+
+* previous : default is ``<<``
+* next : default is ``>>``
+
+```html
+<ngx-bulma-pagination [max]="30" [count]="10" (pageChange)="pageChange($event)" [previous]="'←'" [next]="'→'"></ngx-bulma-pagination>
+```
+
+<img src="screenshot/5prev_next.jpg" width="100%"></img>

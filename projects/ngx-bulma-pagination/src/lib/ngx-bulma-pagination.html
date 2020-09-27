@@ -1,0 +1,29 @@
+<nav [class]="getPagiantionClass()" role="navigation" aria-label="pagination">
+    <a class="pagination-previous" [attr.disabled]="isActivePreviousEllipsis() ? null : ''" (click)="previousSet()">{{ previous }}</a>
+    <a class="pagination-next" [attr.disabled]="isActiveNextEllipsis() ? null : ''" (click)="nextSet()">{{ next }}</a>
+
+    <ul class="pagination-list">
+
+        <ng-container *ngIf="isActivePreviousEllipsis()">
+            <li>
+                <a class="pagination-link" (click)="setCurrentPage(1)">1</a>
+            </li>
+            <li>
+                <span class="pagination-ellipsis">&hellip;</span>
+            </li>
+        </ng-container>
+
+        <li *ngFor="let page of getPages()">
+            <a class="pagination-link" [ngClass]="{'is-current' : page == currentPage}" (click)="setCurrentPage(page)">{{ page }}</a>
+        </li>
+
+        <ng-container *ngIf="isActiveNextEllipsis()">
+            <li>
+                <span class="pagination-ellipsis">&hellip;</span>
+            </li>
+            <li>
+                <a class="pagination-link" (click)="setCurrentPage(max)"> {{ max }}</a>
+            </li>
+        </ng-container>
+    </ul>
+</nav>
