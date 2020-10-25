@@ -3,16 +3,13 @@
 Angular + [Bulma - pagination](https://bulma.io/documentation/components/pagination/)
 
 
-    This project is currently under development. (But it will work fine.)
-
-
 ## Quick Start
 
 1. Install packages
 
-
-    (After the development is completed, it will be distributed to NPM)
-
+```shell
+npm i ngx-bulma-pagination
+```
 
 2. Import a module
 

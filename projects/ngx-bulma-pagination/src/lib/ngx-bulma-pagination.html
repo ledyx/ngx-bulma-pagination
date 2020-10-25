@@ -1,9 +1,8 @@
 <nav [class]="getPagiantionClass()" role="navigation" aria-label="pagination">
-    <a class="pagination-previous" [attr.disabled]="isActivePreviousEllipsis() ? null : ''" (click)="previousSet()">{{ previous }}</a>
-    <a class="pagination-next" [attr.disabled]="isActiveNextEllipsis() ? null : ''" (click)="nextSet()">{{ next }}</a>
+    <button class="pagination-previous" [attr.disabled]="isActivePreviousEllipsis() ? null : ''" (click)="previousSet()">{{ previous }}</button>
+    <button class="pagination-next" [attr.disabled]="isActiveNextEllipsis() ? null : ''" (click)="nextSet()">{{ next }}</button>
 
     <ul class="pagination-list">
-
         <ng-container *ngIf="isActivePreviousEllipsis()">
             <li>
                 <a class="pagination-link" (click)="setCurrentPage(1)">1</a>

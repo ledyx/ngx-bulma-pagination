@@ -1,24 +1,36 @@
 # NgxBulmaPagination
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
+Angular + [Bulma - pagination](https://bulma.io/documentation/components/pagination/)
 
-## Code scaffolding
+## Quick Start
 
-Run `ng generate component component-name --project ngx-bulma-pagination` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-bulma-pagination`.
-> Note: Don't forget to add `--project ngx-bulma-pagination` or else it will be added to the default project in your `angular.json` file. 
+1. Install packages
 
-## Build
+```shell
+npm i ngx-bulma-pagination
+```
 
-Run `ng build ngx-bulma-pagination` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. Import a module
 
-## Publishing
+```typescript
+// app.module.ts
 
-After building your library with `ng build ngx-bulma-pagination`, go to the dist folder `cd dist/ngx-bulma-pagination` and run `npm publish`.
+...
+import { NgxBulmaPaginationModule } from "ngx-bulma-pagination";
 
-## Running unit tests
+@NgModule({
+  ...,
+  imports: [
+    ...,
+    NgxBulmaPaginationModule
+  ],
+  ...
+})
+export class AppModule { }
+```
 
-Run `ng test ngx-bulma-pagination` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Using a component
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```html
+<ngx-bulma-pagination ...></ngx-bulma-pagination>
+```

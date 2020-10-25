@@ -35,16 +35,26 @@ export class NgxBulmaPaginationComponent {
   @Output()
   pageChange = new EventEmitter<Page>();
 
-  getCurrentSet() {
-    return Math.trunc((this.currentPage - 1) / this.count) + 1;
+  private getAverage() {
+    return Math.trunc(this.count / 2);
+  }
+
+  private getRawStartPage() {
+    return this.currentPage - this.getAverage();
+  }
+
+  private getRawEndPage() {
+    return this.currentPage + this.getAverage() - 1;
   }
 
   getStartPage() {
-    return ((this.getCurrentSet() - 1) * this.count) + 1;
+    const temp = Math.min(this.getRawStartPage(), this.max - this.count + 1);
+    return Math.max(1, temp);
   }
 
   getEndPage() {
-    return Math.min(this.getCurrentSet() * this.count, this.max);
+    const temp = Math.max(this.getRawEndPage(), this.count);
+    return Math.min(this.max, temp);
   }
 
   getPages() {
@@ -82,7 +92,7 @@ export class NgxBulmaPaginationComponent {
     if (!this.isActivePreviousEllipsis())
       return;
 
-    this.currentPage = ((this.getCurrentSet() - 2) * this.count) + 1;
+    this.currentPage = Math.max(1, this.currentPage - this.count);
     this.notifyChangedPage();
   }
 
@@ -90,15 +100,15 @@ export class NgxBulmaPaginationComponent {
     if (!this.isActiveNextEllipsis())
       return;
 
-    this.currentPage = ((this.getCurrentSet()) * this.count) + 1;
+    this.currentPage = Math.min(this.max, this.currentPage + this.count);
     this.notifyChangedPage();
   }
 
   isActivePreviousEllipsis(): boolean {
-    return Math.trunc(this.count / this.currentPage) < 1;
+    return this.getRawStartPage() > 1;
   }
 
   isActiveNextEllipsis(): boolean {
-    return this.getCurrentSet() < Math.ceil(this.max / this.count);
+    return this.getRawEndPage() < this.max;
   }
 }
