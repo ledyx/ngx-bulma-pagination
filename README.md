@@ -8,7 +8,7 @@ Angular + [Bulma - pagination](https://bulma.io/documentation/components/paginat
 1. Install packages
 
 ```shell
-npm i ngx-bulma-pagination
+npm i --save bulma ngx-bulma-pagination
 ```
 
 2. Import a module
