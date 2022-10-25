@@ -74,7 +74,7 @@ export class AppModule { }
 <img src="screenshot/3size.jpg" width="100%"></img>
 
 
-### Order
+### Alingnment
 
 * size : ``is-centered`` (default), ``is-left``, ``is-right``
 
